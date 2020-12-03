@@ -1,0 +1,21 @@
+# Tune Redis configuration
+sudo su root
+mkdir -p /etc/redis/
+cp 6379.conf /etc/redis/6379.conf
+
+
+# Run redis server in bg
+redis-server --daemonize yes
+# Run on config
+redis-server /etc/redis/6379.conf
+
+# Server process
+pgrep redis-server
+
+# Shutdown
+redis-cli shutdown
+# or
+pkill redis-server
+
+# Delete data in DB
+redis-cli FLUSHDB
